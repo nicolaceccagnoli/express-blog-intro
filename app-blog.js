@@ -7,6 +7,9 @@ const port = 3000;
 // Importo il controller
 const posts = require('./controllers/blog');
 
+// Importo Path
+const { path } = require('./utils');
+
 // Imposto un middleware per i file statici
 app.use(express.static('public'));
 // Importo un middleware che controlla le request per vedere se ci sono dei JSON
@@ -22,6 +25,11 @@ app.get('/posts', posts.get);
 
 // Definisco una rotta con metodo POST per aggiungere post al blog
 app.post('/posts', posts.post);
+
+// Definisco una rotta per il file index.html
+app.get('/index', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Avvio il server
 app.listen(port, () => {

@@ -23,5 +23,6 @@ const putJsonData = (file, newData) => {
 // Esporto i moduli
 module.exports = {
     getJsonData,
-    putJsonData
+    putJsonData,
+    path
 }
