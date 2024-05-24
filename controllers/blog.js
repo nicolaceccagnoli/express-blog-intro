@@ -16,13 +16,14 @@ module.exports = {
                     html += `
                         <div>
                             <h2> ${title} </h2>
-                            <img style="width: 100px" src="/${img}"/>
+                            <img style="width: 200px" src="/${img}"/>
                             <p> ${content} </p>
                             <ul>
                     `;
                     tags.forEach(t => html += `<li>${t}</li>`);
                     html += `
                             </ul>
+                            <hr>
                         </div>
                     `;
                 });

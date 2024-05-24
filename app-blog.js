@@ -7,6 +7,9 @@ const port = 3000;
 // Importo il controller
 const posts = require('./controllers/blog');
 
+// Imposto un middleware per i file statici
+app.use(express.static('public'));
+
 // Definisco la rotta principale
 app.get('/', (req, res) => {
     res.send(`<h1>Benvenuto nel mio Blog!</h1>`);
