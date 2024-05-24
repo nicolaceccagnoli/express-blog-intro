@@ -1,5 +1,5 @@
 // Importo i moduli di utils
-const { getJsonData } = require('../utils');
+const { getJsonData, putJsonData } = require('../utils');
 
 // Esporto i metodi del controller
 module.exports = {
@@ -37,5 +37,13 @@ module.exports = {
             }
 
         })
+    },
+    // Definisco un metodo POST
+    post: (req, res) => {
+        // Inglobo in una variabile il contenuto del DB
+        const posts = getJsonData('blog');
+        // Aggiorno i post con quello nuovo creato tramite req.body
+        putJsonData('blog', [...posts, req.body]);// req.body rappresenta il corpo della richiesta HTTP
+        res.send('Post inserito correttamente');
     }
 }

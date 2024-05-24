@@ -9,6 +9,8 @@ const posts = require('./controllers/blog');
 
 // Imposto un middleware per i file statici
 app.use(express.static('public'));
+// Importo un middleware che controlla le request per vedere se ci sono dei JSON
+app.use(express.json());
 
 // Definisco la rotta principale
 app.get('/', (req, res) => {
@@ -17,6 +19,9 @@ app.get('/', (req, res) => {
 
 // Definisco una seconda rotta in GET per visualizzare i post
 app.get('/posts', posts.get);
+
+// Definisco una rotta con metodo POST per aggiungere post al blog
+app.post('/posts', posts.post);
 
 // Avvio il server
 app.listen(port, () => {

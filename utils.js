@@ -11,7 +11,17 @@ const getJsonData = (file) => {
     return JSON.parse(fileData);
 }
 
+// Dichiaro una funzione per scrivere data su un file json
+const putJsonData = (file, newData) => {
+    const filePath = path.join(__dirname, 'db', `${file}.json`);
+    // JSON.stringify() converte l'oggetto newData in una stringa JSON
+    const string = JSON.stringify(newData);
+    // Scrivo String all'interno del File
+    fs.writeFileSync(filePath, string);
+}
+
 // Esporto i moduli
 module.exports = {
-    getJsonData
+    getJsonData,
+    putJsonData
 }
